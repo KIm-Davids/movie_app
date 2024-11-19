@@ -5,6 +5,7 @@ interface MenuItemsProps {
     title: string;
     address: string;
     Icon: React.ElementType;
+    textClass: string;
 }
 
 const MenuItems: React.FC<MenuItemsProps> = ({title, address, Icon}) => {
