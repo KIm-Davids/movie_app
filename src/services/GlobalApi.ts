@@ -16,6 +16,34 @@ const getTrendingVideos = async () => {
     }
 }
 
+const getMovieCast = async () => {
+    try {
+        // Step 1: Fetch popular movies
+        const response = await axios.get(`${movieBaseUrl}/movie/popular?api_key=${api_key}`);
+        const movies = response.data.results; // Get the list of movies
+
+        // Step 2: Fetch cast for each movie
+        const moviesWithCast = await Promise.all(
+            movies.map(async (movie) => {
+                const castResponse = await axios.get(`${movieBaseUrl}/movie/${movie.id}/credits?api_key=${api_key}`);
+                return {
+                    movieId: movie.id,
+                    title: movie.title,
+                    cast: castResponse.data.cast.slice(0, 5), // Limit to the first 5 cast members
+                };
+            })
+        );
+
+        // Step 3: Return only the cast information
+        return moviesWithCast;
+
+    } catch (error) {
+        console.error("Error fetching cast data", error);
+        throw error;
+    }
+}
+
+
 const getPopularSeries = async () => {
     try {
         const response = await axios.get(`${movieBaseUrl}/tv/popular?api_key=${api_key}`);
@@ -60,4 +88,5 @@ export default {
     searchMovies,
     getMovieDetail,
     getPopularSeries,
+    getMovieCast
 };
