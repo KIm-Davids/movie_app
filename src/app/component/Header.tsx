@@ -10,9 +10,10 @@ import {BiHeart} from "react-icons/bi";
 const Header: React.FC = () => {
     return (
         <div>
+            <div className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-4">
                 <div className="flex justify-between items-center p-3 max-w-6xl mx-auto lg:mx-20 lg:max-w-full">
                         <div className="flex gap-4">
-                        <MenuItems title='home' address="/" Icon={AiFillHome} textClass="hidden sm:inline text-xl"/>
+                        <MenuItems title='home' address="/" Icon={AiFillHome} textClass="hidden sm:inline text-3xl"/>
                             <MenuItems title='popular' address="/popular" Icon={AiOutlineStar} textClass="hidden sm:inline"/>
                             <MenuItems title='favourite' address="/favourite" Icon={BiHeart} textClass="hidden sm:inline hover:text-pink-400"/>
                     </div>
@@ -20,11 +21,11 @@ const Header: React.FC = () => {
                         <ThemeSwitch />
                         <Link href={'/'} className="flex gap-1 items-center">
                             {/*<span>Watch Tv</span>*/}
-                            <span className='text-2xl font-bold bg-sky-500 py-1 px-2 rounded-lg font-serif'>Next</span>
+                            <span className='text-3xl font-bold bg-sky-500 py-1 px-2 rounded-lg font-serif'>Next</span>
                             <span className='text-xl hidden sm:inline font-sans'>Movies</span>
                         </Link>
                     </div>
-
+                </div>
                 </div>
         </div>
     )

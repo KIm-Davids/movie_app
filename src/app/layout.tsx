@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Next Movie App",
-  description: "Enjoy latest movies now !",
+  description: "Enjoy latest movie now !",
 };
 
 export default function RootLayout({
